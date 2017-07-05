@@ -21,13 +21,12 @@ chai.should();
 var tessapi = require('../');
 
 describe('biojs-rest-tessapi module', function(){
-  describe('#hello()', function(){
-    it('should return a hello', function(){
-
-      assert.equal(tessapi.hello('biojs'), ("hello biojs"));
-      
-      // alternative styles
-      tessapi.hello('biojs').should.equal("hello biojs");
+  describe('#EventsApi()', function(){
+    it('should return two API actions', function(){
+    	var api = new tessapi.EventsApi(); // Allocate the API class we're going to use.
+    	api.should.exist()
+    	api.eventsJsonGet.should.exist()
+    	api.eventsSlugJsonGet.should.exist()
     });
   });
 });
