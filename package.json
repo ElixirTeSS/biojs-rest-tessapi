@@ -1,7 +1,7 @@
 {
   "name": "biojs-rest-tessapi",
   "description": "API client to interface with the TeSS Rest API. Retrieve a list of metedata about upcoming Life science events, training materials, and other training opportunities. Return results filtered by metadata facets",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "homepage": "https://github.com/ElixirTeSS/biojs-rest-tessapi",
   "author": {
     "name": "Niall Beard",
