@@ -9,25 +9,47 @@
 Install the module with: `npm install biojs-rest-tessapi`
 
 ```javascript
-var tessapi = require('biojs-rest-tessapi');
-tessapi.hello("biojs"); // "hello biojs"
+var app = require("biojs-rest-tessapi");
+var events_api = new app.EventsApi();
+var materials_api = new app.MaterialsApi();
 ```
 
 ## Documentation
 
-#### .hello(name)
+### .EventsApi()
 
-**Parameter**: `name`
-**Type**: `String`
-**Example**: `biojs`
+The 'EventsAPI' class has methods for retrieving all events matching a certain criteria (eventsJsonGet()) and retrieving a single record (eventsSlugJsonGet())
 
-The 'hello' method is responsible for showing a name.
+#### .eventsJsonGet()
+**Parameter**: `query`
+**Type**: `Hash`
+**Example**: `{"country[]": ["United Kingdom", "Australia"]},
+			   "scientific_topics[]": ["RNA-SEQ","Bioinformatics"]`
 
 How to use this method
 
 ```javascript
-tessapi.hello('biojs'); // "hello biojs"
+var app = require("biojs-rest-tessapi");
+
+var api = new app.EventsApi(); // Allocate the API class we're going to use.
+
+api.eventsJsonGet(
+	{
+		"q": "RNA-SEQ",
+		"country[]": ["United Kingdom", "Belgium"]
+	}, //see lib/api/EventsApi.js for full params options
+	function(error, data, response){ 
+		console.log(data)
+	}
+)
 ```
+
+#### .eventsSlugJsonGet()
+
+**Parameter**: `slug`
+**Type**: `String`
+**Example**: `"elixir-board-meeting-bergen"`
+
 
 ## Contributing
 
