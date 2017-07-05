@@ -1,0 +1,63 @@
+{
+  "name": "biojs-rest-tessapi",
+  "description": "API client to interface with the TeSS Rest API. Retrieve a list of metedata about upcoming Life science events, training materials, and other training opportunities. Return results filtered by metadata facets",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ElixirTeSS/biojs-rest-tessapi",
+  "author": {
+    "name": "Niall Beard",
+    "email": "niall.beard@manchester.ac.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ElixirTeSS/biojs-rest-tessapi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ElixirTeSS/biojs-rest-tessapi/issues"
+  },
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha",
+    "build": "mkdirp build && browserify -r ./:biojs-rest-tessapi -o build/tessapi.js",
+    "build-browser": "npm run build",
+    "prepublish": "npm run build",
+    "watch": "watchify -r ./:biojs-rest-tessapi -v -o build/tessapi.js",
+    "w": "prunner \"npm run sniper\" \"npm run watch\"",
+    "sniper": "sniper ."
+  },
+  "dependencies": {
+    "superagent": "^1.7.1"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.0",
+    "browserify": "6.x",
+    "sniper": "0.x",
+    "watchify": "^1.0.6",
+    "prunner": "1.x",
+    "chai": "1.x",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
+  },
+  "sniper": {
+    "js": [
+      "/build/tessapi.js"
+    ],
+    "snippets": [
+      "examples"
+    ],
+    "first": "simple"
+  },
+  "keywords": [
+    "elixir",
+    "tess",
+    "training",
+    "events",
+    "api",
+    "materials",
+    "training events",
+    "bioinformatics",
+    "rest",
+    "biojs"
+  ]
+}
